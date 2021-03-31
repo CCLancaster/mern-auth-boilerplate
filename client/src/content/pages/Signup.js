@@ -34,7 +34,7 @@ const Signup = props => {
     .then(response => {
       if (!response.ok) {
         console.log(response);
-        setMessage(`${response.status}`);
+        setMessage(`${response.status}: ${response.statusText}`);
         return;
       }
 
@@ -43,14 +43,12 @@ const Signup = props => {
         props.updateUser(result.token);
       })
 
-      if (props.user) {
-        return <Redirect to="/profile" />
-      }
     })
+ 
+  }
 
-    
-    // update the state of each declared variable to be set to the form input from user
-    // post updated states to the server
+  if (props.user) {
+    return <Redirect to="/profile" />
   }
 
   return (
