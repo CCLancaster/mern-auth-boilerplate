@@ -48,7 +48,7 @@ const Signup = props => {
   }
 
   if (props.user) {
-    return <Redirect to="/profile" />
+    return <Redirect to="/auth/profile" />
   }
 
   return (
